@@ -42,4 +42,3 @@ public class Undergraduate extends Student {
         return sum() / (grades.length + 1);
     }
 }
-

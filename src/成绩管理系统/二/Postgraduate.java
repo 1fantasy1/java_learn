@@ -6,7 +6,7 @@ public class Postgraduate extends Student {
 
     // 构造方法
     public Postgraduate(String id, String name, CourseGrade[] grades, float thesisGrade, String thesisTitle) {
-        super(id, name, grades);
+        super(id, name, grades, "研究生");
         this.thesisGrade = thesisGrade;
         this.thesisTitle = thesisTitle;
     }
@@ -41,5 +41,9 @@ public class Postgraduate extends Student {
     public int average() {
         return sum() / (grades.length + 1);
     }
-}
 
+    @Override
+    public String toString() {
+        return super.toString() + ", 论文：{标题='" + thesisTitle + "', 成绩=" + thesisGrade + "}";
+    }
+}

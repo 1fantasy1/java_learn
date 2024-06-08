@@ -1,18 +1,19 @@
 package 成绩管理系统.二;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public abstract class Student implements Comparable<Student>, ComputeGrade {
     protected String id;                    // 学号
     protected String name;                  // 姓名
     protected CourseGrade[] grades;         // 多门课程的成绩
+    protected String degree;                // 学历
 
     // 构造方法
-    public Student(String id, String name, CourseGrade[] grades) {
+    public Student(String id, String name, CourseGrade[] grades, String degree) {
         this.id = id;
         this.name = name;
         this.grades = grades;
+        this.degree = degree;
     }
 
     // get/set方法
@@ -40,9 +41,17 @@ public abstract class Student implements Comparable<Student>, ComputeGrade {
         this.grades = grades;
     }
 
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
     @Override
     public String toString() {
-        return "学生：{学号='" + id + "', 姓名='" + name + "'}";
+        return "学生：{学号='" + id + "', 姓名='" + name + "', 学历='" + degree + "'}";
     }
 
     @Override

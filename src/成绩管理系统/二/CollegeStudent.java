@@ -2,7 +2,7 @@ package 成绩管理系统.二;
 
 public class CollegeStudent extends Student {
     public CollegeStudent(String id, String name, CourseGrade[] grades) {
-        super(id, name, grades);
+        super(id, name, grades, "本科生");
     }
 
     @Override
@@ -19,4 +19,3 @@ public class CollegeStudent extends Student {
         return sum() / grades.length;
     }
 }
-

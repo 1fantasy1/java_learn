@@ -1,16 +1,14 @@
-package 成绩管理系统.二;
+package 成绩管理系统.一改;
 
 public class CourseGrade {
-    private int id;          // 课程ID
-    private float grade;     // 课程成绩
+    private int id;
+    private float grade;
 
-    // 构造方法
     public CourseGrade(int id, float grade) {
         this.id = id;
         this.grade = grade;
     }
 
-    // get/set方法
     public int getId() {
         return id;
     }
