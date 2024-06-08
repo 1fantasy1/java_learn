@@ -1,4 +1,4 @@
-package 成绩管理系统;
+package 成绩管理系统.一;
 //大专生
 public class CollegeStudent extends Student {
     public CollegeStudent(String id, String name, CourseGrade[] grades) {

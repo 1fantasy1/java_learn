@@ -1,4 +1,4 @@
-package 成绩管理系统;
+package 成绩管理系统.一;
 
 public class Course {
     private int id;          // 课程ID

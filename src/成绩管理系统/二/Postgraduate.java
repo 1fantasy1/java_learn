@@ -1,5 +1,5 @@
-package 成绩管理系统;
-//研究生
+package 成绩管理系统.二;
+
 public class Postgraduate extends Student {
     private float thesisGrade;     // 论文成绩
     private String thesisTitle;    // 论文题目
@@ -29,8 +29,8 @@ public class Postgraduate extends Student {
     }
 
     @Override
-    public float sum() {
-        float total = thesisGrade;
+    public int sum() {
+        int total = (int) thesisGrade;
         for (CourseGrade grade : grades) {
             total += grade.getGrade();
         }
@@ -38,7 +38,8 @@ public class Postgraduate extends Student {
     }
 
     @Override
-    public float average() {
+    public int average() {
         return sum() / (grades.length + 1);
     }
 }
+

@@ -1,11 +1,11 @@
-package 成绩管理系统;
-//本科生
-public class Undergraduate extends Student {
+package 成绩管理系统.一;
+//研究生
+public class Postgraduate extends Student {
     private float thesisGrade;     // 论文成绩
     private String thesisTitle;    // 论文题目
 
     // 构造方法
-    public Undergraduate(String id, String name, CourseGrade[] grades, float thesisGrade, String thesisTitle) {
+    public Postgraduate(String id, String name, CourseGrade[] grades, float thesisGrade, String thesisTitle) {
         super(id, name, grades);
         this.thesisGrade = thesisGrade;
         this.thesisTitle = thesisTitle;
@@ -42,4 +42,3 @@ public class Undergraduate extends Student {
         return sum() / (grades.length + 1);
     }
 }
-

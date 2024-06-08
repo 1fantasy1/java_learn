@@ -1,4 +1,4 @@
-package 成绩管理系统;
+package 成绩管理系统.二;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,3 +44,4 @@ public class Main {
         System.out.println();
     }
 }
+

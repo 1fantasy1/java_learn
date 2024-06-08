@@ -1,8 +1,9 @@
-package 成绩管理系统;
+package 成绩管理系统.二;
 
+import java.util.Arrays;
 import java.util.Objects;
 
-public abstract class Student implements Comparable<Student> {
+public abstract class Student implements Comparable<Student>, ComputeGrade {
     protected String id;                    // 学号
     protected String name;                  // 姓名
     protected CourseGrade[] grades;         // 多门课程的成绩
@@ -39,13 +40,9 @@ public abstract class Student implements Comparable<Student> {
         this.grades = grades;
     }
 
-    // 抽象方法
-    public abstract float sum();        // 计算总成绩
-    public abstract float average();    // 计算平均成绩
-
     @Override
     public String toString() {
-        return "学生：{id='" + id + "', name='" + name + "'}";
+        return "学生：{学号='" + id + "', 姓名='" + name + "'}";
     }
 
     @Override
