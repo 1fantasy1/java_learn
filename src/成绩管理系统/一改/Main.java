@@ -1,46 +1,61 @@
 package 成绩管理系统.一改;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Main {
+    private static final Random random = new Random();
+
     public static void main(String[] args) {
-        CourseGrade cg1 = new CourseGrade(1, 90);
-        CourseGrade cg2 = new CourseGrade(2, 85);
-        CourseGrade cg3 = new CourseGrade(3, 95);
-        CourseGrade cg4 = new CourseGrade(4, 88);
-        CourseGrade cg5 = new CourseGrade(5, 83);
+        // 创建课程
+        Course english = new Course(1, "英语");
+        Course math = new Course(2, "数学");
+        Course computer = new Course(3, "计算机");
+        Course physics = new Course(4, "物理");
 
-        // 创建本科生
-        Student student1 = new CollegeStudent("C001", "张三", Arrays.asList(cg1, cg2, cg3));
-        System.out.println(student1);
-        System.out.printf("总成绩: %.1f\n", student1.sum());
-        System.out.printf("平均成绩: %.1f\n", student1.average());
+        // 创建学生
+        CollegeStudent collegeStudent1 = new CollegeStudent("C001", "张三", generateRandomGradesArray(3));
+        CollegeStudent collegeStudent2 = new CollegeStudent("C002", "赵六", generateRandomGradesArray(3));
 
-        Student student2 = new CollegeStudent("C002", "赵六", Arrays.asList(cg1, cg4, cg5));
-        System.out.println(student2);
-        System.out.printf("总成绩: %.1f\n", student2.sum());
-        System.out.printf("平均成绩: %.1f\n", student2.average());
+        Undergraduate undergraduate = new Undergraduate("U001", "李四", generateRandomGradesList(3), random.nextFloat() * 40 + 60, "人工智能论文");
+        Undergraduate undergraduate2 = new Undergraduate("U002", "田七", generateRandomGradesList(3), random.nextFloat() * 40 + 60, "数据科学论文");
 
-        // 创建本科生（含论文成绩）
-        Student student3 = new Undergraduate("U001", "李四", Arrays.asList(cg1, cg2, cg3), 88.0f);
-        System.out.println(student3);
-        System.out.printf("总成绩: %.1f\n", student3.sum());
-        System.out.printf("平均成绩: %.1f\n", student3.average());
+        Student postgraduate = new Student("P001", "王五", generateRandomGradesArray(4), "研究生", random.nextFloat() * 40 + 60, "机器学习论文");
+        Student postgraduate2 = new Student("P002", "孙八", generateRandomGradesArray(4), "研究生", random.nextFloat() * 40 + 60, "深度学习论文");
 
-        Student student4 = new Undergraduate("U002", "田七", Arrays.asList(cg1, cg4, cg5), 90.0f);
-        System.out.println(student4);
-        System.out.printf("总成绩: %.1f\n", student4.sum());
-        System.out.printf("平均成绩: %.1f\n", student4.average());
+        // 打印学生信息及其总成绩和平均成绩
+        printStudentInfo(collegeStudent1);
+        printStudentInfo(collegeStudent2);
+        printStudentInfo(undergraduate);
+        printStudentInfo(undergraduate2);
+        printStudentInfo(postgraduate);
+        printStudentInfo(postgraduate2);
+    }
 
-        // 创建研究生（含论文成绩）
-        Student student5 = new Postgraduate("P001", "王五", Arrays.asList(cg1, cg2, cg3, cg4), 92.0f);
-        System.out.println(student5);
-        System.out.printf("总成绩: %.1f\n", student5.sum());
-        System.out.printf("平均成绩: %.1f\n", student5.average());
+    private static CourseGrade[] generateRandomGradesArray(int numCourses) {
+        CourseGrade[] grades = new CourseGrade[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            grades[i] = new CourseGrade(i + 1, random.nextFloat() * 40 + 60);  // 随机生成60到100之间的成绩
+        }
+        return grades;
+    }
 
-        Student student6 = new Postgraduate("P002", "孙八", Arrays.asList(cg1, cg4, cg5, cg2), 95.0f);
-        System.out.println(student6);
-        System.out.printf("总成绩: %.1f\n", student6.sum());
-        System.out.printf("平均成绩: %.1f\n", student6.average());
+    private static List<CourseGrade> generateRandomGradesList(int numCourses) {
+        List<CourseGrade> grades = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            grades.add(new CourseGrade(i + 1, random.nextFloat() * 40 + 60));  // 随机生成60到100之间的成绩
+        }
+        return grades;
+    }
+
+    private static void printStudentInfo(Student student) {
+        System.out.println(student);
+        System.out.println("总成绩: " + student.sum());
+        System.out.println("平均成绩: " + student.average());
+        if (student.getThesisGrade() != null) {
+            System.out.println("论文成绩已加入总成绩中。");
+        }
+        System.out.println();
     }
 }
